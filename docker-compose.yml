@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.12.1-management
+    container_name: opennet-broker
+    ports:
+      - 5672:5672
+      - 15672:15672
+  producer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: opennet-msg-producer
+    environment:
+      - MQ_HOST=rabbitmq
+      - MQ_PORT=5672
+      - MQ_QUEUE_NAME=test_queue
+    command: ["python", "producer.py"]
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: opennet-msg-consumer
+    environment:
+      - MQ_HOST=rabbitmq
+      - MQ_PORT=5672
+      - MQ_QUEUE_NAME=test_queue
+    command: ["python", "consumer.py"]
