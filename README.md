@@ -22,7 +22,7 @@ This is the assignment 2 which is about RabbitMQ and python pika library applica
     ```
 3. run
     ```bash
-    docker-compose run
+    docker-compose up -d
     ```
 
 ## Demo
