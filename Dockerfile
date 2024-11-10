@@ -14,11 +14,5 @@ WORKDIR /app
 RUN pip install poetry
 
 # Copy dependency files and install dependencies
-COPY ["./pyproject.toml", "poetry.lock", "./"]
-RUN poetry install
-
-# Check installed packages for debugging
-RUN ls /app/.venv/lib/python3.11/site-packages
-
-# Copy application code
 COPY ["./", "./"]
+RUN poetry install

@@ -24,3 +24,6 @@ This is the assignment 2 which is about RabbitMQ and python pika library applica
     ```bash
     docker-compose run
     ```
+
+## Demo
+[demo link](https://imgur.com/a/kUXTouu)
